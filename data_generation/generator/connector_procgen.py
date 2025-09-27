@@ -1,14 +1,14 @@
 ## 
 
-from .connnector_base import BaseConnector
+from generator.connector_base import BaseConnector
 from external.procgen_agent import procgen_agent_generator
 
-def ProcgenConnector(BaseConnector):
-    def __init__(self
+class ProcgenConnector(BaseConnector):
+    def __init__(self,config=None
                 ):
         if config is None:
             config = {
-                "procgen-env": "coinrun",
+                "env": "coinrun",
                 "version": "0.1.0",
                 "is_high_difficulty": True,
                 "agent_type": "random",
@@ -17,23 +17,27 @@ def ProcgenConnector(BaseConnector):
 
         
         self.config = config
-        self.env = procgen["procgen-env"]
+        self.name = config["name"]
         self.version = config["version"]
         self.image_size = config["image_size"]
         self.agent_type = config["agent_type"]
 
         # TODO implement an agent 
-        self.agent_generator = (procgen_agent_generator if self.agent_type == "random" else raise Exception(f"agent type {self.agent_type} not supported"))
+        if self.agent_type == "random":
+            self.agent_generator = procgen_agent_generator 
+        else: 
+            raise Exception(f"agent type {self.agent_type} not supported")
+
         
     def get_name(self):
-        return self.env  
+        return self.name
 
     def get_info(self):
         return self.config 
 
 
     def generator(self, instance_id, session_id, n_steps_max):
-        for frame_id, (img_, obs_, act_, rew_, done_, info_) in enumerate(self.agent_generator(env_name = self.env,max_steps = n_steps_max)):
+        for frame_id, (img_, obs_, act_, rew_, done_, info_) in enumerate(self.agent_generator(env_name = self.name,max_steps = n_steps_max)):
             if done_:
                 break 
                 

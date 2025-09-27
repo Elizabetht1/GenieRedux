@@ -2,7 +2,7 @@
 import gym
 from tqdm import tqdm 
 
-
+import procgen 
 from procgen.env import ENV_NAMES 
 
 def procgen_agent_generator(env_name,
@@ -25,7 +25,7 @@ def procgen_agent_generator(env_name,
     if env_name not in ENV_NAMES:
         raise Exception(f"envionrment error {env_name} not in list of supported progen enviornments")
         
-    env = gym.make(env_name = env_name,
+    env = gym.make(f"procgen:procgen-{env_name}",
                   num_levels=num_levels,
                    start_level=start_level, 
                    paint_vel_info=paint_vel_info,
@@ -37,7 +37,7 @@ def procgen_agent_generator(env_name,
                    distribution_mode=distribution_mode,
                    use_backgrounds=use_backgrounds,
                    restrict_themes=restrict_themes,
-                   use_monochrome_assets=use_monochrome_assets
+                   use_monochrome_assets=use_monochrome_assets,
                    render_mode="rgb_array")
     
     obs = env.reset()

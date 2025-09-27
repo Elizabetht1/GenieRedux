@@ -1,27 +1,27 @@
-# defaults:
-#   - config: retro_act/pretrain
-#   - _self_
-
-# # Global properties
-# data_dpath: datasets/
-
-# hydra:
-#   job:
-#     chdir: false
-#   output_subdir: null
-#   run:
-#     dir: .
-
 defaults:
-  - /connector@connector: coinrun
+  - config: retro_act/pretrain
   - _self_
 
+# Global properties
 data_dpath: datasets/
-connector:
-  agent_type: random
-  generator_config:
-    n_instances: 10000
-    n_sessions: 1
-    n_steps_max: 500
-    n_workers: 48
-    output_mode: frame
+
+hydra:
+  job:
+    chdir: false
+  output_subdir: null
+  run:
+    dir: .
+
+# defaults:
+#   - /connector@connector: coinrun
+#   - _self_
+
+# data_dpath: datasets/
+# connector:
+#   agent_type: random
+#   generator_config:
+#     n_instances: 10000
+#     n_sessions: 1
+#     n_steps_max: 500
+#     n_workers: 48
+#     output_mode: frame

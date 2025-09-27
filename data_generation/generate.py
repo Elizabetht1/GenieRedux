@@ -87,6 +87,15 @@ def main(cfg):
         connector_config["classname"] = CoinRunConnector
 
         connector_configs.append(connector_config)
+        
+    elif config["env"] == "procgen":
+        connector_config = config["connector_" + config["env"]]
+
+        from generator.connector_procgen import ProcgenConnector
+
+        connector_config["classname"] = ProcgenConnector
+
+        connector_configs.append(connector_config)
 
     elif config["env"] == "retro_act":
         connector_config_retro_act = config["connector_" + config["env"]]

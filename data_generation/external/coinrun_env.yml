@@ -2,6 +2,8 @@ name: coinrun
 channels:
   - conda-forge
   - anaconda
+  - anaconda/label/archive  # Access to older packages
+  - conda-forge/label/archive
 dependencies:
   - python=3.6.15
   - opencv
@@ -14,3 +16,41 @@ dependencies:
   - libgl
   - libglu
   - qt==5.15.9
+
+# name: coinrun
+# channels:
+#   - conda-forge
+#   - anaconda
+#   - anaconda/label/archive  # Access to older packages
+#   - conda-forge/label/archive
+# dependencies:
+#   - python=3.6.15
+#   - pip=21.0.1  # Compatible with Python 3.6
+#   - setuptools=58.0.4
+#   - wheel=0.37.1
+  
+#   # System libraries for coinrun
+#   - opencv=4.5.3
+#   - mpi4py=3.1.1
+#   - mpich=4.0.2  # Use older version compatible with mpi4py 3.1.1
+#   - harfbuzz=2.9.1
+#   - pango=1.50.14
+#   - freeglut=3.2.2
+#   - glew=2.2.0
+#   - libgl=1.7.0
+#   - libglu=9.0.0
+#   - qt=5.12.9  # Use older Qt version for better compatibility
+  
+#   # Core scientific packages with Python 3.6 compatible versions
+#   - numpy=1.19.5  # Last version to support Python 3.6
+#   - scipy=1.5.4
+#   - matplotlib=3.3.4
+#   - pandas=1.1.5
+  
+#   # Additional dependencies that coinrun might need
+#   - pillow=8.4.0
+#   - imageio=2.9.0
+#   - gym-retro=0.8.0  # If using retro games
+#   - cmake=3.22.1
+#   - make=4.3
+#   - pkg-config=0.29.2

@@ -182,7 +182,8 @@ class EnvironmentDataGenerator:
         self.info["version"] = env_connector.version
         self.info["generator_config"] = generator_config
 
-        self.is_enabled = env_connector.is_enabled
+        # self.is_enabled = env_connector.is_enabled
+        self.is_enabled = True
 
         # Set up the generator
         self.n_instances = generator_config["n_instances"]

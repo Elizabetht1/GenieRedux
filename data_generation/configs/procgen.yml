@@ -1,0 +1,13 @@
+defaults:
+  - /connector@connector: procgen
+  - _self_
+
+data_dpath: datasets/
+connector:
+  agent_type: random
+  generator_config:
+    n_instances: 10000
+    n_sessions: 1
+    n_steps_max: 500
+    n_workers: 48
+    output_mode: frame

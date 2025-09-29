@@ -2,6 +2,7 @@
 
 from generator.connector_base import BaseConnector
 from external.procgen_agent import procgen_agent_generator
+import cv2 
 
 class ProcgenConnector(BaseConnector):
     def __init__(self,config=None
@@ -37,7 +38,8 @@ class ProcgenConnector(BaseConnector):
 
 
     def generator(self, instance_id, session_id, n_steps_max):
-        for frame_id, (img_, obs_, act_, rew_, done_, info_) in enumerate(self.agent_generator(env_name = self.name,max_steps = n_steps_max)):
+        for frame_id, (img_, act_,rew, done_, info_) in enumerate(self.agent_generator(env_name = self.name,max_steps = n_steps_max)):
+            # print("\n",frame_id,"\n")
             if done_:
                 break 
                 
@@ -49,5 +51,7 @@ class ProcgenConnector(BaseConnector):
                 "tgt_frame_id": frame_id,
                 "frame": img_,
                 "action": int(act_),
+                "session_end": frame_id == n_steps_max - 1,
+                "extras": {}
             }
             

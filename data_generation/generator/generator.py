@@ -203,6 +203,7 @@ class EnvironmentDataGenerator:
     ):
         env_connector = connector_class_name(connector_config)
         for instance_id, session_id in tqdm(ids):
+
             actions = []
             video_stream = None
 

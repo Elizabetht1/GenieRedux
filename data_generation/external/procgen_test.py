@@ -43,13 +43,31 @@ def procgen_agent_generator(env_name,
     
     obs = env.reset()
     done = False 
+    # print(f"\n MAX STEPS {max_steps}\n")
     for step in tqdm(range(max_steps)):
+        # print(step)
         if done:
+            print("done \n")
             break
 
         ## sample a random action 
         act_  =  np.array(env.action_space.sample())
+        # print(acts_)
         img_, rew, done_, info_ = env.step(act_)
+        # print(len(res))
         done = done_ 
-
+        # img_ = env.render(mode='rgb_array')
+        # print(img_)
+        # exit()
+        # done = True
         yield img_, act_,rew, done_, info_
+        # yield img_, obs_, acts_, rew_, done_, info_, 
+    
+
+
+if __name__ == "__main__":
+    out = procgen_agent_generator("coinrun")
+    res = [_ for _ in out]
+        # print(tup)
+        
+    

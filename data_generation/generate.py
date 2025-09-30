@@ -2,7 +2,7 @@ import copy
 import json
 
 import tqdm
-from generator.generator import EnvironmentDataGenerator
+from generator.generator import EnvironmentDataGeneratorRPAD 
 
 from omegaconf import OmegaConf
 import hydra
@@ -14,7 +14,13 @@ def run_env(config, connector_config):
     generator_config = connector_config["generator_config"]
     del connector_config["generator_config"]
 
-    generator = EnvironmentDataGenerator(
+    # generator = EnvironmentDataGenerator(
+    #     connector_class_name,
+    #     connector_config,
+    #     generator_config,
+    #     config,
+    # )
+    generator = EnvironmentDataGeneratorRPAD(
         connector_class_name,
         connector_config,
         generator_config,

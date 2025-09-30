@@ -5,9 +5,9 @@ agent_type: random
 is_high_res: false
 is_high_difficulty: false
 should_paint_velocity: false
-image_size: [64, 64]
+image_size: [128, 128]
 generator_config:
-  n_instances: 10000
-  n_sessions: 1
+  n_instances: 50  # legacy, not used 
+  n_sessions: 50
   n_steps_max: 500
   n_workers: 48

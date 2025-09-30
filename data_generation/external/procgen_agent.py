@@ -43,7 +43,7 @@ def procgen_agent_generator(env_name,
     
     obs = env.reset()
     done = False 
-    for step in tqdm(range(max_steps)):
+    for step in range(max_steps):
         if done:
             break
 

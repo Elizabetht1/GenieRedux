@@ -52,6 +52,9 @@ class ProcgenConnector(BaseConnector):
                 "frame": img_,
                 "action": int(act_),
                 "session_end": frame_id == n_steps_max - 1,
+                "done": done_,
+                "procgen_info": info_,
+                "reward" : rew,
                 "extras": {}
             }
             

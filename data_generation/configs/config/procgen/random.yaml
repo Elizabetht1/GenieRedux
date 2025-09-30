@@ -4,11 +4,11 @@ defaults:
 
 data_dpath: datasets/
 connector:
-  version: "0.0.0"
+  version: "1.0.0"
   agent_type: random
   generator_config:
-    n_instances: 10000
-    n_sessions: 1
+    n_instances: 50  # legacy, not used 
+    n_sessions: 50 
     n_steps_max: 500
     n_workers: 48
-    output_mode: frame
+    output_mode: frame # legacy, not used 
